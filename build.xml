@@ -2,12 +2,12 @@
 <project name="PJ-DBServices" default="deploy">
 	<property file="build.properties"/>
     <target name="deploy" depends="pack, pack_lib">
-        <copy file="einstieg2014.war" 
-        	  tofile="${jboss.path}/standalone/deployments/einstieg2014.war"/>
+        <copy file="dbservices.war" 
+        	  tofile="${jboss.path}/standalone/deployments/dbservices.war"/>
     </target>
 
     <target name="pack">
-    	<jar destfile="einstieg2014.war">
+    	<jar destfile="dbservices.war">
     		<fileset dir="./web-src">
     			<include name="**/*.*"/>
     			<exclude name="**/DocumentStorageProxyFactory.class"/>
