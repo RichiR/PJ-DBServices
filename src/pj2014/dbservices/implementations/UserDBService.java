@@ -7,7 +7,6 @@ import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import pj.mi.rest2014.entities.User;
 
 @Singleton
 @Remote(UserDBServiceRemote.class)

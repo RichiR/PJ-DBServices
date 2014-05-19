@@ -53,3 +53,5 @@ local.properties
 .cproject
 # PDT-specific
 .buildpath
+
+build.properties

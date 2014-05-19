@@ -18,8 +18,6 @@ import javax.persistence.PersistenceContext;
 
 import javax.persistence.Query;
 
-import pj.mi.rest2014.entities.Document;
-import pj.mi.rest2014.entities.Patient;
 import pj2014.dbservices.interfaces.DocumentDBServiceRemote;
 import pj2014.doclocreg.factories.DocLocRegProxyFactory;
 import pj2014.doclocreg.interfaces.IDocumentLocationRegistry;
