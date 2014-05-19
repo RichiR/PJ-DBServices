@@ -18,10 +18,6 @@ import pj2014.dbservices.interfaces.*;
 
 
 
-import pj.mi.rest2014.services.DocumentDBServiceRemote;
-import pj2014.dbservices.interfaces.IDocumentStorage;
-import pj2014.dbservice.interfaces;
-
 public class DocumentStorage implements IDocumentStorage{
 	
 	@EJB
