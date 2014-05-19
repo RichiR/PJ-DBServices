@@ -7,7 +7,7 @@ import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import pj.mi.rest2014.entities.Patient;
+
 
 /*
  *Patient C-R-U-D
