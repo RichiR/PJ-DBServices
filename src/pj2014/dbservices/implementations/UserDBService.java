@@ -6,7 +6,7 @@ import javax.ejb.Remote;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
+ 
 
 @Singleton
 @Remote(UserDBServiceRemote.class)
