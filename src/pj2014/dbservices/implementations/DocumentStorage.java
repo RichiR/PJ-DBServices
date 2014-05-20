@@ -24,12 +24,12 @@ public class DocumentStorage implements IDocumentStorage{
 	DocumentDBServiceRemote docServ;
 	
 	@GET
-	@Path("/{docId}")
+	@Path("/getDoc/{docId}")
 	@Produces("application/json")
-	public String getDocument(@PathParam("docId") int docId) {
+	public Document getDocument(@PathParam("docId") int docId) {
 		
 		Document result = docServ.readDocument(docId);
-		return result.toString()+" hallo";
+		return result;
 	}
 
 	@POST
