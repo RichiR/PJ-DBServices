@@ -1,11 +1,15 @@
 package pj2014.dbservices.implementations;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.ejb.Remote;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import pj2014.dbservices.interfaces.Patient;
+import pj2014.dbservices.interfaces.PatientDBServiceRemote;
 
 
 
@@ -48,6 +52,7 @@ public class PatientDBService implements PatientDBServiceRemote {
 		return aktDBPat;
 		
 	}
+
 	
 	/* (non-Javadoc)
 	 * @see pj.mi.rest2014.services.PatientDBServiceRemote#findPatientById(int)
@@ -65,6 +70,19 @@ public class PatientDBService implements PatientDBServiceRemote {
 	public Patient[] getallPatients()
 	{
 		return new Patient[42];
+	}
+
+	@Override
+	public ArrayList<Patient> findPatientByName(String firstname,
+			String lastname, Date bday) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteAllPatients() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

@@ -8,20 +8,11 @@ import java.util.List;
 import javax.ejb.Remote;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
-
-
-
-
-
 import javax.persistence.Query;
 
 import pj2014.dbservices.interfaces.DocumentDBServiceRemote;
-import pj2014.doclocreg.factories.DocLocRegProxyFactory;
-import pj2014.doclocreg.interfaces.IDocumentLocationRegistry;
-import pj2014.doclocreg.interfaces.IDocument;
+import pj2014.doclocreg.implementations.Document;
 
 //Service-Klasse, die für die Kommunikation mit der Datenbank zuständig ist (Daten auslesen, speichern,...)
 @Singleton
@@ -61,26 +52,13 @@ public class DocumentDBService implements DocumentDBServiceRemote {
 	public boolean updateDocument(Document doc, String filename, String docType, String category, String content) 
 	{
 		Document aktDBDoc = em.find(Document.class, doc.getDocId()); //holt das aktuelle Dokument aus der DB 
-		try
-		{
-			em.getTransaction().begin();
+			
 			aktDBDoc.setFilename(filename);
 			aktDBDoc.setDocType(docType);
 			aktDBDoc.setCategory(category);
 			aktDBDoc.setContent(content);
-			em.getTransaction().commit();
-		} 
-		catch (Exception e)
-		{
-			//TO DO: sinnvolles Exception-Handling
-			System.out.println(e.getMessage());
-		}
-		finally
-		{
-			em.close();
-		}
-		
-		return true;
+
+			return true;
 	}
 	
 	//DELETE
@@ -98,8 +76,8 @@ public class DocumentDBService implements DocumentDBServiceRemote {
 	/* (non-Javadoc)
 	 * @see pj.mi.rest2014.services.DocumentDBServiceRemote#findDocuments(java.lang.String, java.lang.String, java.util.Date, java.util.Date)
 	 */
-	@Override
-	public ArrayList<Document> findDocuments(String file, String category, Date dtFrom, Date dtUntil)
+
+	public ArrayList<Document> findDocuments(String file, String category, String dtFrom, String dtUntil)
 	{
 		ArrayList<Document> docs= new ArrayList<Document>();
 		try
@@ -125,6 +103,12 @@ public class DocumentDBService implements DocumentDBServiceRemote {
 			em.close();
 		}
 		return docs;
+	}
+
+	@Override
+	public boolean deleteAllDocuments() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }

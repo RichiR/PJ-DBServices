@@ -14,7 +14,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import pj2014.dbservices.interfaces.*;
+import pj2014.dbservices.interfaces.DocumentDBServiceRemote;
+import pj2014.dbservices.interfaces.IDocumentStorage;
+import pj2014.doclocreg.implementations.Document;
 
 
 
@@ -64,7 +66,7 @@ public class DocumentStorage implements IDocumentStorage{
 	@GET
 	@Path("/findDocs")
 	@Produces ("application/json")
-	public Document[] findDocuments (@QueryParam("filename") String filename, @QueryParam ("category") String category,@QueryParam ("dtFrom") String dtFrom, @QueryParam ("dtUntil") String dtUntil) throws ParseException
+	public Document[] findDocuments (@QueryParam("filename") String filename, @QueryParam ("category") String category,@QueryParam ("dtFrom") String dtFrom, @QueryParam ("dtUntil") String dtUntil)
 	{
 		ArrayList<Document> docs= docServ.findDocuments(filename, category, dtFrom, dtUntil);
 		return docs.toArray(new Document[docs.size()]);

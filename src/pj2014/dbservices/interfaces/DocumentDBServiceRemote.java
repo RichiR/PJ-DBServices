@@ -1,11 +1,10 @@
 package pj2014.dbservices.interfaces;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.ejb.Remote;
 
-import pj.mi.rest2014.entities.Document;
+import pj2014.doclocreg.implementations.Document;
 
 @Remote
 public interface DocumentDBServiceRemote {

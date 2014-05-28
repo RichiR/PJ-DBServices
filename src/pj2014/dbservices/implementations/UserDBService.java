@@ -6,6 +6,9 @@ import javax.ejb.Remote;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import pj2014.dbservices.interfaces.User;
+import pj2014.dbservices.interfaces.UserDBServiceRemote;
  
 
 @Singleton
@@ -24,12 +27,13 @@ public class UserDBService implements UserDBServiceRemote {
 		em.persist(user);
 		return user;
 	}
-	
+
 	
 	/* (non-Javadoc)
    * @see pj.mi.rest2014.services.UserDBServiceRemote#updateUser(pj.mi.rest2014.entities.User, java.lang.String, java.lang.String, java.lang.String)
    */
 	@Override
+
   public User updateUser(User us, String firstName, String lastName, String password)
 	{
 		User aktDBUser = em.find(User.class, us.getUserId()); //gets the pat in the db
@@ -49,5 +53,14 @@ public class UserDBService implements UserDBServiceRemote {
 		em.remove(em.find(User.class, Userid));
 		return true;
 	}
+
+
+	@Override
+	public boolean deleteAllUsers() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
 
 }

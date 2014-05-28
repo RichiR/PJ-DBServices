@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.ejb.Remote;
-import javax.ws.rs.PathParam;
-
-import pj.mi.rest2014.entities.Patient;
 
 @Remote
 public interface PatientDBServiceRemote {

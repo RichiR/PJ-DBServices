@@ -11,6 +11,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
+import pj2014.doclocreg.implementations.Document;
+
 
 @Singleton
 @Path("/DocumentStorage")
@@ -19,7 +21,7 @@ public interface IDocumentStorage {
 	@GET
 	@Path("/{docId}")
 	@Produces("application/json")
-	public String getDocument(@PathParam("docId") int docId);
+	public Document getDocument(@PathParam("docId") int docId);
 	
 	@POST
 	@Consumes("application/json")
