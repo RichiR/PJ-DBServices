@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.ejb.Remote;
 
+import pj2014.patrepo.entities.Patient;
+
 @Remote
 public interface PatientDBServiceRemote {
 

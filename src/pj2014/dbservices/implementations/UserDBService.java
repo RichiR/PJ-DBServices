@@ -7,7 +7,7 @@ import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import pj2014.dbservices.interfaces.User;
+import pj2014.patrepo.entities.User;
 import pj2014.dbservices.interfaces.UserDBServiceRemote;
  
 
