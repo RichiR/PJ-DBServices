@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.ejb.Remote;
+import pj2014.dbservices.implementations.*;
 
 @Remote
 public interface PatientDBServiceRemote {

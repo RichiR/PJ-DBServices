@@ -8,9 +8,9 @@ import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import pj2014.dbservices.interfaces.Patient;
-import pj2014.dbservices.interfaces.PatientDBServiceRemote;
 
+import pj2014.dbservices.interfaces.PatientDBServiceRemote;
+import pj2014.patrepo.interfaces.*;
 
 
 /*

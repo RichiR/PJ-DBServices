@@ -1,6 +1,5 @@
 package pj2014.dbservices.interfaces;
 
-import pj.mi.rest2014.entities.User;
 
 public interface UserDBServiceRemote {
 
