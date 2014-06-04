@@ -1,5 +1,6 @@
 package pj2014.dbservices.interfaces;
 
+
 import pj2014.patrepo.entities.User;
 
 public interface UserDBServiceRemote {

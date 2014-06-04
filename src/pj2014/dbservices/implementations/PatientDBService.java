@@ -10,8 +10,8 @@ import javax.persistence.PersistenceContext;
 
 
 import pj2014.dbservices.interfaces.PatientDBServiceRemote;
+import pj2014.patrepo.interfaces.*;
 import pj2014.patrepo.entities.Patient;
-
 
 
 /*
