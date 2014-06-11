@@ -14,7 +14,6 @@ import javax.ws.rs.QueryParam;
 import pj2014.doclocreg.implementations.Document;
 
 
-@Singleton
 @Path("/DocumentStorage")
 public interface IDocumentStorage {
 	

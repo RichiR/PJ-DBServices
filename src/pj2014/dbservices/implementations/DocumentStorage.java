@@ -1,9 +1,9 @@
 package pj2014.dbservices.implementations;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 
 import javax.ejb.EJB;
+import javax.ejb.Singleton;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -19,7 +19,7 @@ import pj2014.dbservices.interfaces.IDocumentStorage;
 import pj2014.doclocreg.implementations.Document;
 
 
-
+@Singleton
 public class DocumentStorage implements IDocumentStorage{
 	
 	@EJB

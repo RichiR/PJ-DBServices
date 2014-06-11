@@ -19,7 +19,7 @@
 		<jar destfile="dbservices_client.jar">
 			<fileset dir="./web-src/WEB-INF/classes">
 				<include name="pj2014/dbservices/*.*"/>
-				<include name="pj2014/dbservices/implementations/*.*" />
+				<exclude name="pj2014/dbservices/implementations/*.*" />
 				<include name="pj2014/dbservices/interfaces/*.*" />
 			</fileset>
 		</jar>
