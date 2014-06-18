@@ -3,7 +3,7 @@
 	<property file="build.properties"/>
     <target name="deploy" depends="pack, pack_lib">
         <copy file="dbservices.war" 
-        	  tofile="${jboss.path}/standalone/deployments/dbservices.war"/>
+        	  tofile="${jboss.path}/standalone/deployments/dbservices.war" />
     </target>
 
     <target name="pack" depends="fetch_dependencies">
@@ -27,9 +27,13 @@
 	</target>
 	
 	<target name="fetch_dependencies">
-			<copy file="../PJ-PatRepo/patrepo_client.jar" 
-			      tofile="./web-src/WEB-INF/lib/patrepo_client.jar"/>
-		</target>
+
+		<copy file="../PJ-PatRepo/patrepo_client.jar" 
+		      tofile="./web-src/WEB-INF/lib/patrepo_client.jar"/>
+		<copy file="../PJ-DocLocReg/doclocreg_client.jar" 
+			  tofile="./web-src/WEB-INF/lib/doclocreg_client.jar"/>
+	</target>
+
 	
 
 </project>
