@@ -6,7 +6,7 @@
         	  tofile="${jboss.path}/standalone/deployments/dbservices.war"/>
     </target>
 
-    <target name="pack">
+    <target name="pack" depends="fetch_dependencies">
     	<jar destfile="dbservices.war">
     		<fileset dir="./web-src">
     			<include name="**/*.*"/>
@@ -25,6 +25,11 @@
 		</jar>
 	
 	</target>
+	
+	<target name="fetch_dependencies">
+			<copy file="../PJ-PatRepo/patrepo_client.jar" 
+			      tofile="./web-src/WEB-INF/lib/patrepo_client.jar"/>
+		</target>
 	
 
 </project>
