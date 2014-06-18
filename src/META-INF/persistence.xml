@@ -11,6 +11,5 @@
          <property name="hibernate.hbm2ddl.auto" value="update"/>
       	</properties>
       	<class>pj2014.doclocreg.implementations.Document</class>
-      	
 	</persistence-unit>
 </persistence>
