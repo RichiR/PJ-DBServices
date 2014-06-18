@@ -1,6 +1,6 @@
 package pj2014.dbservices.interfaces;
 
-import javax.ejb.Singleton;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,7 +18,7 @@ import pj2014.doclocreg.implementations.Document;
 public interface IDocumentStorage {
 	
 	@GET
-	@Path("/{docId}")
+	@Path("/getDoc/{docId}")
 	@Produces("application/json")
 	public Document getDocument(@PathParam("docId") int docId);
 	

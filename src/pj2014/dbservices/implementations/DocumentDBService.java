@@ -28,7 +28,8 @@ public class DocumentDBService implements DocumentDBServiceRemote {
 	 */
 	@Override
 	public Document createDocument(Document d) 
-	{
+	{	
+		System.out.println("Im DocumentDBService: createDocument");
 		em.persist(d);
 		return d;
 	}
