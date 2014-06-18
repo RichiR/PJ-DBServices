@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.ejb.Remote;
+import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
 import pj2014.dbservices.implementations.*;
 import pj2014.patrepo.entities.Patient;
 
 @Remote
+@Path("/PatientDBService")
 public interface PatientDBServiceRemote {
 
 	// create
