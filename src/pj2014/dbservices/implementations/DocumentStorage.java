@@ -43,9 +43,9 @@ public class DocumentStorage implements IDocumentStorage{
 	
 	
 	//docId �ndert sich nicht, versId vermutlich auch nicht. Kann sich userId �ndern und soll creation bei �nderung ge�ndert werden??
-	public Document changeDocument(Document doc, String filename, String docType, String category, String content) {
+	public Document changeDocument(int docId, String filename, String docType, String category, String content) {
 		Document result = new Document();
-		docServ.updateDocument(doc, filename, docType, category, content);
+		docServ.updateDocument(docId, filename, docType, category, content);
 		return result;
 	}
 

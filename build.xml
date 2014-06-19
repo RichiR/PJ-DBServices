@@ -21,6 +21,7 @@
 				<include name="pj2014/dbservices/*.*"/>
 				<exclude name="pj2014/dbservices/implementations/*.*" />
 				<include name="pj2014/dbservices/interfaces/*.*" />
+				<include name="pj2014/dbservices/factories/*.*" />
 			</fileset>
 		</jar>
 	

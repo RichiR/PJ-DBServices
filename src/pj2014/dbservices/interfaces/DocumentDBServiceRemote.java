@@ -17,7 +17,7 @@ public interface DocumentDBServiceRemote {
 
 	//UPDATE
 	//docId ändert sich nicht, versId vermutlich auch nicht. Kann sich userId ändern und soll creation bei Änderung geändert werden??
-	public abstract boolean updateDocument(Document doc, String filename,
+	public abstract boolean updateDocument(int docId, String filename,
 			String docType, String category, String content);
 
 	//DELETE

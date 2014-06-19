@@ -50,15 +50,17 @@ public class DocumentDBService implements DocumentDBServiceRemote {
 	 * @see pj.mi.rest2014.services.DocumentDBServiceRemote#updateDocument(pj.mi.rest2014.entities.Document, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
 	 */
 	@Override
-	public boolean updateDocument(Document doc, String filename, String docType, String category, String content) 
+	public boolean updateDocument(int docId, String filename, String docType, String category, String content) 
 	{
-		Document aktDBDoc = em.find(Document.class, doc.getDocId()); //holt das aktuelle Dokument aus der DB 
+		Document aktDBDoc = em.find(Document.class, docId); //holt das aktuelle Dokument aus der DB 
 			
 			aktDBDoc.setFilename(filename);
 			aktDBDoc.setDocType(docType);
 			aktDBDoc.setCategory(category);
 			aktDBDoc.setContent(content);
-
+			System.out.println("Dok ID !!!!!!!!!!!!!!!!!" + aktDBDoc.getDocId());
+			
+			em.persist(aktDBDoc);
 			return true;
 	}
 	
@@ -81,9 +83,9 @@ public class DocumentDBService implements DocumentDBServiceRemote {
 	public ArrayList<Document> findDocuments(String file, String category, String dtFrom, String dtUntil)
 	{
 		ArrayList<Document> docs= new ArrayList<Document>();
-		try
-		{
-			em.getTransaction().begin();
+		//try
+		//{
+		//em.getTransaction().begin();
 			//To DO:Datenbank-Abfrage überprüfen und erweitern
 			Query query= em.createQuery("SELECT doc FROM document doc WHERE filename=file");
 			List list=query.getResultList();
@@ -94,15 +96,15 @@ public class DocumentDBService implements DocumentDBServiceRemote {
 				Document doc=(Document)it.next();
 				docs.add(doc);
 			}
-			em.getTransaction().commit();
-		}catch(Exception e)
+		//em.getTransaction().commit();
+		/*}catch(Exception e)
 		{ 
 			System.out.println(e.getMessage()); //TO DO: sinnvolles Exception-Handling
 		}
 		finally 
 		{
 			em.close();
-		}
+		}*/
 		return docs;
 	}
 

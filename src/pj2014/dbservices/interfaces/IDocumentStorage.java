@@ -30,7 +30,8 @@ public interface IDocumentStorage {
 	
 	@PUT
 	@Path("/changeDoc")
-	public Document changeDocument(Document doc, String filename, String docType, String category, String content);
+	@Consumes("application/json")
+	public Document changeDocument(int docId, String filename, String docType, String category, String content);
 	
 	@DELETE
 	@Path("/deleteDoc")
