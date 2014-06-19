@@ -7,7 +7,8 @@ import javax.ejb.Remote;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
+import javax.persistence.Query;
+import javax.persistence.TemporalType;
 
 import pj2014.dbservices.interfaces.PatientDBServiceRemote;
 import pj2014.patrepo.interfaces.*;
@@ -76,8 +77,13 @@ public class PatientDBService implements PatientDBServiceRemote {
 	@Override
 	public ArrayList<Patient> findPatientByName(String firstname,
 			String lastname, Date bday) {
-		// TODO Auto-generated method stub
-		return null;
+		Query foundPat=em.createQuery("SELECT p FROM Patient p WHERE p.firstName = :firstname AND p.name = :lastname AND p.birthDate = :bday ");
+		foundPat.setParameter("firstname", firstname);
+		foundPat.setParameter("lastname", lastname);
+		foundPat.setParameter("bday", bday, TemporalType.DATE);
+		ArrayList<Patient> foundPatients = new ArrayList<Patient>(foundPat.getResultList());
+		
+		return foundPatients;
 	}
 
 	@Override

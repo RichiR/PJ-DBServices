@@ -27,11 +27,13 @@
 	</target>
 	
 	<target name="fetch_dependencies">
+
 		<copy file="../PJ-PatRepo/patrepo_client.jar" 
 		      tofile="./web-src/WEB-INF/lib/patrepo_client.jar"/>
 		<copy file="../PJ-DocLocReg/doclocreg_client.jar" 
 			  tofile="./web-src/WEB-INF/lib/doclocreg_client.jar"/>
 	</target>
+
 	
 
 </project>
