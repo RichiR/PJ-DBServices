@@ -34,7 +34,7 @@ public interface PatientDBServiceRemote {
 	@Consumes("application/json")
 	@Produces("application/json")
 	public abstract Patient updatePatient(Patient pat, String firstName,
-			String lastName, boolean gender, Date bBDay);
+			String lastName, String gender, String bBDay);
 
 	@GET
 	@Path("/findPatId")
@@ -51,7 +51,7 @@ public interface PatientDBServiceRemote {
 	@Path("/findPatsName")
 	@Produces("application/json")
 	@Consumes("application/json")
-	public abstract ArrayList<Patient> findPatientByName(String firstname,String lastname,Date bday);
+	public abstract ArrayList<Patient> findPatientByName(String firstname,String lastname,String bday);
 	
 	@DELETE
 	@Path("/deleteAllPats")

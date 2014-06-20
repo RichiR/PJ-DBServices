@@ -42,7 +42,7 @@ public class PatientDBService implements PatientDBServiceRemote {
 	 * @see pj.mi.rest2014.services.PatientDBServiceRemote#updatePatient(pj.mi.rest2014.entities.Patient, java.lang.String, java.lang.String, boolean, java.util.Date)
 	 */
 	@Override
-	public Patient updatePatient(Patient pat, String firstName, String lastName, boolean gender, Date bBDay)
+	public Patient updatePatient(Patient pat, String firstName, String lastName, String gender, String bBDay)
 	{	
 		Patient aktDBPat = em.find(Patient.class, pat.getId());
 		em.getTransaction().begin();
@@ -76,11 +76,11 @@ public class PatientDBService implements PatientDBServiceRemote {
 
 	@Override
 	public ArrayList<Patient> findPatientByName(String firstname,
-			String lastname, Date bday) {
+			String lastname, String bday) {
 		Query foundPat=em.createQuery("SELECT p FROM Patient p WHERE p.firstName = :firstname AND p.name = :lastname AND p.birthDate = :bday ");
 		foundPat.setParameter("firstname", firstname);
 		foundPat.setParameter("lastname", lastname);
-		foundPat.setParameter("bday", bday, TemporalType.DATE);
+		foundPat.setParameter("bday", bday);
 		ArrayList<Patient> foundPatients = new ArrayList<Patient>(foundPat.getResultList());
 		
 		return foundPatients;
