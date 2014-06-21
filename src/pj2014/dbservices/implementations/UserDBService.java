@@ -9,6 +9,7 @@ import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.ws.rs.QueryParam;
 
 import pj2014.patrepo.entities.User;
 import pj2014.dbservices.interfaces.UserDBServiceRemote;
@@ -65,13 +66,19 @@ public class UserDBService implements UserDBServiceRemote {
 	}
 
 	@Override
-	public boolean checkUser(String userInput){
-		//TODO Input zerlegen am Blank
-		//TODO alle User laden und jeweils Namen und Vornamen mit dem Input vergleichen
-		Query q = em.createQuery("select u from User u");
-		List<User> result = q.getResultList();
+	public User checkUser(@QueryParam("vorname")String firstName, @QueryParam("name")String lastName, @QueryParam("passwort")String password){
 		
-		return true;
+		Query q = em.createQuery("select u from User as u");
+		List<User> result = q.getResultList();
+		for(int i=0; i<result.size(); i++){
+			User actUser = result.get(i);
+			if(firstName == actUser.getUserFirstName() && 
+					lastName == actUser.getUserName() &&
+					password == actUser.getPassword()){
+				return actUser;
+			}
+		}
+		return null;
 	}
 
 }

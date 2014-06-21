@@ -9,6 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 import pj2014.patrepo.entities.User;
 @Remote
@@ -37,8 +38,8 @@ public interface UserDBServiceRemote {
   @Path("/deleteAllUser")
   public abstract boolean deleteAllUsers();
   
-  @Path("/checkUser/")
-  @Consumes("application/json")
-  public abstract boolean checkUser(String userInput);
+  @Path("/checkUser")
+  @Produces("application/json")
+  public abstract User checkUser(@QueryParam("vorname")String firstName, @QueryParam("name")String lastName, @QueryParam("passwort")String password);
 
 }
