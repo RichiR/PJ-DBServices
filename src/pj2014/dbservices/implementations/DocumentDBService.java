@@ -58,9 +58,9 @@ public class DocumentDBService implements DocumentDBServiceRemote {
 			aktDBDoc.setDocType(docType);
 			aktDBDoc.setCategory(category);
 			aktDBDoc.setContent(content);
-			System.out.println("Dok ID !!!!!!!!!!!!!!!!!" + aktDBDoc.getDocId());
+			System.out.println("Dok ID !!!!!!!!" + aktDBDoc.getDocId());
 			
-			em.persist(aktDBDoc);
+			em.merge(aktDBDoc);
 			return true;
 	}
 	
