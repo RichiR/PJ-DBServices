@@ -12,5 +12,6 @@
       	</properties>
       	<class>pj2014.doclocreg.implementations.Document</class>
       	<class>pj2014.patrepo.entities.User</class>
+      	<class>pj2014.patrepo.entities.Patient</class>
 	</persistence-unit>
 </persistence>

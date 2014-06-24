@@ -2,6 +2,7 @@ package pj2014.dbservices.implementations;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Remote;
 import javax.ejb.Singleton;
@@ -9,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TemporalType;
+import javax.ws.rs.Produces;
 
 import pj2014.dbservices.interfaces.PatientDBServiceRemote;
 import pj2014.patrepo.interfaces.*;
@@ -42,7 +44,7 @@ public class PatientDBService implements PatientDBServiceRemote {
 	 * @see pj.mi.rest2014.services.PatientDBServiceRemote#updatePatient(pj.mi.rest2014.entities.Patient, java.lang.String, java.lang.String, boolean, java.util.Date)
 	 */
 	@Override
-	public Patient updatePatient(Patient pat, String firstName, String lastName, String gender, String bBDay)
+	public Patient updatePatient(Patient pat, String firstName, String lastName, boolean gender, String bBDay)
 	{	
 		Patient aktDBPat = em.find(Patient.class, pat.getId());
 		em.getTransaction().begin();
@@ -71,8 +73,12 @@ public class PatientDBService implements PatientDBServiceRemote {
 	@Override
 	public Patient[] getallPatients()
 	{
-		return new Patient[42];
+		//return new Patient[42];
+	    Query findPats=em.createQuery("SELECT p FROM " + Patient.class.getName() + " p");
+	    ArrayList<Patient> foundPatients = new ArrayList<Patient>(findPats.getResultList());    
+		    return (Patient[]) foundPatients.toArray();
 	}
+
 
 	@Override
 	public ArrayList<Patient> findPatientByName(String firstname,

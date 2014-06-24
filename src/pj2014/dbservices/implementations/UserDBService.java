@@ -41,11 +41,12 @@ public class UserDBService implements UserDBServiceRemote {
   public User updateUser(User us, String firstName, String lastName, String password)
 	{
 		User aktDBUser = em.find(User.class, us.getUserId()); //gets the pat in the db
-		em.getTransaction().begin();
+		//em.getTransaction().begin();
 		aktDBUser.setUserFirstName(firstName);
 		aktDBUser.setUserName(lastName);
 		aktDBUser.setPassword(password);
-		em.getTransaction().commit();
+		//em.getTransaction().commit();
+		em.merge(aktDBUser);
 		return aktDBUser;
 	}
 	

@@ -34,7 +34,7 @@ public interface PatientDBServiceRemote {
 	@Consumes("application/json")
 	@Produces("application/json")
 	public abstract Patient updatePatient(Patient pat, String firstName,
-			String lastName, String gender, String bBDay);
+			String lastName, boolean gender, String bBDay);
 
 	@GET
 	@Path("/findPatId")
